@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Projeto PI</title>
+    <link href="/styles/estilos.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/scripts/dom.js"></script>
+    <script type="text/javascript" src="/scripts/pais.js"></script>
+    <script type="text/javascript" src="/scripts/jogador.js"></script>
+    <script type="text/javascript" src="/scripts/gameSession.js"></script>
+    <script type="text/javascript" src="/scripts/tipoEstatistica.js"></script>
+    <script type="text/javascript" src="/scripts/estatistica.js"></script>
+    <script type="text/javascript" src="/scripts/populate.js"></script>
+
+</head>
+
+<body>
+    <article>
+        <header>Aplicação Web para Gestão de Videojogo
+        </header>
+        <!-- divMenu para mostrar menu -->
+        <div id="divMenu">
+            <nav class="nav">
+                <ul id="menu">
+                    <li>
+                        <a class="home" href="javascript:paginaHome();">Home</a>
+                    </li>
+                    <li>
+                        <a class="jogador" href="javascript:paginaJogadores();">Players</a>
+                    </li>
+                    <li>
+                        <a class="gamesession" href="javascript:paginaGameSessions();">Game Sessions</a>
+                    </li>
+                    <li>
+                        <a class="estatistica" href="javascript:paginaEstatisticas();">Statistics</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- div central para mostrar conteudo -->
+        <div id="divCentral">
+
+        </div>
+
+        <!-- Formulario criar novo jogador -->
+        <div id="divFormJogador" style="display: none;">
+            <h2>Adicionar ou Editar Jogador</h2>
+            <br>
+            <br>
+            <form id="formJogador" action="javascript: formJogador()">
+                <div>
+                    <input id="jogadorId" type="hidden" name="jogadorId">
+                </div>
+                <div>
+                    <label for="nomeJogador">Nome</label>&nbsp;
+                    <input type="text" id="nomeJogador" name="nomeJogador">
+                </div>
+                <div>
+                    <label for="dataNascimento">Data de Nascimento</label>&nbsp;
+                    <input id="dataNascimento" type="text" name="dataNascimento">
+                </div>
+                <div>
+                    <label for="paisJogador">País</label>&nbsp;
+                    <select id="paisJogador">
+                        <option value=""></option>
+                        <option value="Angola">Angola</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Cabo Verde">Cabo Verde</option>
+                        <option value="Dinamarca">Dinamarca</option>
+                        <option value="Espanha">Espanha</option>
+                        <option value="França">França</option>
+                        <option value="Grécia">Grécia</option>
+                        <option value="Holanda">Holanda</option>
+                        <option value="Itália">Itália</option>
+                        <option value="Portugal">Portugal</option>
+                    </select>
+                </div>
+                <div>
+                    <br>
+                    <button type="submit">Salvar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Formulario criar ou editar game session -->
+        <div id="divFormGameSession" style="display:none">
+            <h2>Adicionar ou Editar Game Session</h2>
+            <br>
+            <br>
+            <form id="formGameSession" action="javascript: formGameSession()">
+                <div>
+                    <input id="gameSessionId" type="hidden" name="gameSessionId">
+                </div>
+
+                <div>
+                    <br>
+                    <button type="submit">Salvar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Formulario criar ou editar estatistica -->
+        <div id="divFormEstatistica" style="display:none">
+            <h2>Adicionar ou Editar Estatistica</h2>
+            <br>
+            <br>
+            <form id="formEstatistica" action="javascript: formEstatistica()">
+                <div>
+                    <input id="estatisticaId" type="hidden" name="estatisticaId">
+                </div>
+
+                <div>
+                    <br>
+                    <button type="submit">Salvar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- rodapé -->
+        <footer>
+            <p>
+                2017/2018 - Licenciatura em Engenharia Informatica
+            </p>
+            <p>
+                Programação para Internet &copy;
+            </p>
+        </footer>
+    </article>
+
+</body>
+
+</html>

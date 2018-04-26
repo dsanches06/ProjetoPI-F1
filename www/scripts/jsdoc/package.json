@@ -1,0 +1,127 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "git+https://github.com/jsdoc3/jsdoc.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "git+https://github.com/jsdoc3/jsdoc.git",
+        "spec": "git+https://github.com/jsdoc3/jsdoc.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:jsdoc3/jsdoc.git",
+          "sshUrl": "git+ssh://git@github.com/jsdoc3/jsdoc.git",
+          "httpsUrl": "git+https://github.com/jsdoc3/jsdoc.git",
+          "gitUrl": "git://github.com/jsdoc3/jsdoc.git",
+          "shortcut": "github:jsdoc3/jsdoc",
+          "directUrl": "https://raw.githubusercontent.com/jsdoc3/jsdoc/master/package.json"
+        }
+      },
+      "E:\\Engenharia Informatica\\EI Geral\\PI\\2017_2018\\projeto\\ProjetoPI\\www\\scripts"
+    ]
+  ],
+  "_from": "git+https://github.com/jsdoc3/jsdoc.git",
+  "_id": "jsdoc@3.6.0-dev",
+  "_inCache": true,
+  "_location": "/jsdoc",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "git+https://github.com/jsdoc3/jsdoc.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "git+https://github.com/jsdoc3/jsdoc.git",
+    "spec": "git+https://github.com/jsdoc3/jsdoc.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:jsdoc3/jsdoc.git",
+      "sshUrl": "git+ssh://git@github.com/jsdoc3/jsdoc.git",
+      "httpsUrl": "git+https://github.com/jsdoc3/jsdoc.git",
+      "gitUrl": "git://github.com/jsdoc3/jsdoc.git",
+      "shortcut": "github:jsdoc3/jsdoc",
+      "directUrl": "https://raw.githubusercontent.com/jsdoc3/jsdoc/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "git+https://github.com/jsdoc3/jsdoc.git#b21427343c7294bbf1f14c718a390f3e955e37cb",
+  "_shasum": "bdacec79b17d0ede79bb0513c37065d1ab9c2300",
+  "_shrinkwrap": null,
+  "_spec": "git+https://github.com/jsdoc3/jsdoc.git",
+  "_where": "E:\\Engenharia Informatica\\EI Geral\\PI\\2017_2018\\projeto\\ProjetoPI\\www\\scripts",
+  "author": {
+    "name": "Michael Mathews",
+    "email": "micmath@gmail.com"
+  },
+  "bin": {
+    "jsdoc": "./jsdoc.js"
+  },
+  "bugs": {
+    "url": "https://github.com/jsdoc3/jsdoc/issues"
+  },
+  "contributors": [
+    {
+      "url": "https://github.com/jsdoc3/jsdoc/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "babylon": "7.0.0-beta.19",
+    "bluebird": "~3.5.0",
+    "catharsis": "~0.8.9",
+    "escape-string-regexp": "~1.0.5",
+    "js2xmlparser": "~3.0.0",
+    "klaw": "~2.0.0",
+    "markdown-it": "~8.3.1",
+    "markdown-it-named-headers": "~0.0.4",
+    "marked": "~0.3.6",
+    "mkdirp": "~0.5.1",
+    "requizzle": "~0.2.1",
+    "strip-json-comments": "~2.0.1",
+    "taffydb": "2.6.2",
+    "underscore": "~1.8.3"
+  },
+  "description": "An API documentation generator for JavaScript.",
+  "devDependencies": {
+    "ajv": "~5.2.2",
+    "gulp": "~3.9.1",
+    "gulp-eslint": "~4.0.0",
+    "gulp-json-editor": "~2.2.1",
+    "nyc": "~11.1.0"
+  },
+  "engines": {
+    "node": ">=4.2.0"
+  },
+  "gitHead": "b21427343c7294bbf1f14c718a390f3e955e37cb",
+  "greenkeeper": {
+    "ignore": [
+      "taffydb"
+    ]
+  },
+  "homepage": "https://github.com/jsdoc3/jsdoc#readme",
+  "keywords": [
+    "documentation",
+    "javascript"
+  ],
+  "license": "Apache-2.0",
+  "maintainers": {
+    "name": "Jeff Williams",
+    "email": "jeffrey.l.williams@gmail.com"
+  },
+  "name": "jsdoc",
+  "optionalDependencies": {},
+  "readme": "JSDoc 3\r\n=======\r\n\r\n[![Build Status](https://travis-ci.org/jsdoc3/jsdoc.svg?branch=master)](http://travis-ci.org/jsdoc3/jsdoc)\r\n\r\nAn API documentation generator for JavaScript.\r\n\r\nWant to contribute to JSDoc? Please read `CONTRIBUTING.md`.\r\n\r\nInstallation and Usage\r\n----------------------\r\n\r\nJSDoc supports Node.js 4.2.0 and later. You can install JSDoc globally or in your project's\r\n`node_modules` folder.\r\n\r\nTo install the latest version on npm globally (may require `sudo`; [learn how to fix\r\nthis](https://docs.npmjs.com/getting-started/fixing-npm-permissions)):\r\n\r\n    npm install -g jsdoc\r\n\r\nTo install the latest version on npm locally and save it in your package's `package.json` file:\r\n\r\n    npm install --save-dev jsdoc\r\n\r\n**Note**: By default, npm adds your package using the caret operator in front of the version number\r\n(for example, `^3.5.2`). We recommend using the tilde operator instead (for example, `~3.5.2`),\r\nwhich limits updates to the most recent patch-level version. See [this Stack Overflow\r\nanswer](https://stackoverflow.com/questions/22343224) for more information about the caret and tilde\r\noperators.\r\n\r\nTo install the latest development version locally, without updating your project's `package.json`\r\nfile:\r\n\r\n    npm install git+https://github.com/jsdoc3/jsdoc.git\r\n\r\nIf you installed JSDoc locally, the JSDoc command-line tool is available in `./node_modules/.bin`.\r\nTo generate documentation for the file `yourJavaScriptFile.js`:\r\n\r\n    ./node_modules/.bin/jsdoc yourJavaScriptFile.js\r\n\r\nOr if you installed JSDoc globally, simply run the `jsdoc` command:\r\n\r\n    jsdoc yourJavaScriptFile.js\r\n\r\nBy default, the generated documentation is saved in a directory named `out`. You can use the\r\n`--destination` (`-d`) option to specify another directory.\r\n\r\nRun `jsdoc --help` for a complete list of command-line options.\r\n\r\nTemplates and Tools\r\n-------------------\r\n\r\nThe JSDoc community has created numerous templates and other tools to help you generate and\r\ncustomize your documentation. Here are just a few:\r\n\r\n### Templates\r\n\r\n+ [jaguarjs-jsdoc](https://github.com/davidshimjs/jaguarjs-jsdoc)\r\n+ [DocStrap](https://github.com/docstrap/docstrap) ([example](https://docstrap.github.io/docstrap))\r\n+ [jsdoc3Template](https://github.com/DBCDK/jsdoc3Template)\r\n  ([example](https://github.com/danyg/jsdoc3Template/wiki#wiki-screenshots))\r\n+ [minami](https://github.com/Nijikokun/minami)\r\n+ [docdash](https://github.com/clenemt/docdash) ([example](http://clenemt.github.io/docdash/))\r\n+ [tui-jsdoc-template](https://github.com/nhnent/tui.jsdoc-template) ([example](https://nhnent.github.io/tui.jsdoc-template/latest/))\r\n\r\n### Build Tools\r\n\r\n+ [JSDoc Grunt plugin](https://github.com/krampstudio/grunt-jsdoc)\r\n+ [JSDoc Gulp plugin](https://github.com/mlucool/gulp-jsdoc3)\r\n\r\n### Other Tools\r\n\r\n+ [jsdoc-to-markdown](https://github.com/jsdoc2md/jsdoc-to-markdown)\r\n+ [Integrating GitBook with\r\nJSDoc](https://medium.com/@kevinast/integrate-gitbook-jsdoc-974be8df6fb3)\r\n\r\nFor More Information\r\n--------------------\r\n\r\n+ Documentation is available at [Use JSDoc](http://usejsdoc.org).\r\n+ Contribute to the docs at [jsdoc3/jsdoc3.github.com](https://github.com/jsdoc3/jsdoc3.github.com).\r\n+ [Join JSDoc's Slack channel](https://jsdoc-slack.appspot.com/).\r\n+ Ask for help on the [JSDoc Users mailing list](http://groups.google.com/group/jsdoc-users).\r\n+ Post questions tagged `jsdoc` to [Stack\r\nOverflow](http://stackoverflow.com/questions/tagged/jsdoc).\r\n\r\nLicense\r\n-------\r\n\r\nJSDoc 3 is copyright (c) 2011-present Michael Mathews <micmath@gmail.com> and the [contributors to\r\nJSDoc](https://github.com/jsdoc3/jsdoc/graphs/contributors).\r\n\r\nJSDoc 3 is free software, licensed under the Apache License, Version 2.0. See the file `LICENSE.md`\r\nin this distribution for more details.\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsdoc3/jsdoc.git"
+  },
+  "revision": "1500758109682",
+  "scripts": {
+    "test": "gulp lint; gulp test"
+  },
+  "version": "3.6.0-dev"
+}

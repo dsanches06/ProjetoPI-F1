@@ -1,0 +1,293 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #CCC;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+article
+{
+    margin: 0 auto;
+    border: 5px solid #FFF;
+    background-color: #036;
+    width: 99%;
+}
+
+header
+{
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 5px;
+    height: 30px;
+    border-bottom: 5px solid #FFF;
+}
+
+#divMenu
+{
+    float: left;
+    width: 160px;
+}
+
+ul#menu
+{
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: none;
+    width: 100%;
+}
+
+ul#menu a
+{
+    display: inline-block;
+    padding: 5px 5px 5px 27px;
+    width: 128px;
+    text-decoration: none;
+    color: #FFF;
+    background: #036 url("/images/circulo.png") no-repeat 8px 50%;
+    cursor: pointer;
+}
+
+ul#menu a:hover
+{
+    color: #000;
+    background-color: #69C; 
+}
+
+#divCentral
+{
+    text-align: center;
+    float: right;
+    padding:  0 10px;
+    height: 530px;
+    width: 85%;
+    background-color: #69C;
+}
+
+#divFormJogador
+{
+    text-align: center;
+    float: right;
+    padding:  0 10px;
+    height: 530px;
+    width: 85%;
+    background-color: #69C;
+}
+
+#divFormGameSession
+{
+    text-align: center;
+    float: right;
+    padding:  0 10px;
+    height: 530px;
+    width: 85%;
+    background-color: #69C;
+}
+#divFormEstatistica
+{
+    text-align: center;
+    float: right;
+    padding:  0 10px;
+    height: 530px;
+    width: 85%;
+    background-color: #69C;
+}
+
+footer
+{
+    clear: both;
+    text-align: right;
+    color: #FFF;
+    font-size: 14px;
+    padding: 15px 15px;
+    height: 20px;
+    border-top: 5px solid #FFF;
+}
+
+p
+{
+ margin: 0;
+ padding: 0;
+}
+
+.divTabela {
+    width: 80%;
+    height: 80%;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    margin: 0 auto 6px auto;
+    padding: 6px;
+}
+
+section {
+  position: relative;
+  padding-top: 37px;
+  background: #FFF;
+  width: 99%;
+  height: 65%;
+}
+section.positioned {
+  position: absolute;
+  box-shadow: 0 0 15px #333;
+}
+.container {
+  overflow-y: auto;
+  height: 300px;
+}
+
+.tabela {
+  margin: 1em 0;
+  width: 100%;
+  overflow: hidden;
+  background: #FFF;
+  color: #000;
+  border-radius: none;
+  border: none;
+}
+ .tabela tr {
+  border: none;
+}
+ .tabela tr:nth-child(odd) {
+  background-color: gray;
+}
+ .tabela th {
+  background: #fff;
+}
+ .tabela th:first-child {
+  display: table-cell;
+  text-align: left;
+}
+ .tabela th:nth-child(2) {
+  display: table-cell;
+
+}
+ .tabela th:nth-child(2) span {
+  display: none;
+}
+ .tabela th:nth-child(2):after {
+  content: attr(data-th);
+}
+@media (min-width: 0px) {
+  .tabela th:nth-child(2) span {
+    display: block;
+  }
+  .tabela th:nth-child(2):after {
+    display: none;
+  }
+}
+.tabela td {
+  display: block;
+  word-wrap: break-word;
+  max-width: 5em;
+}
+.tabela td:first-child {
+  display: table-cell;
+  text-align: left;
+  border-right: none;
+}
+@media (min-width: 0px) {
+   .tabela td {
+    border: none;
+  }
+}
+.tabela th,  .tabela td {
+  text-align: left;
+  margin: .5em 1em;
+}
+
+@media (min-width: 0px) {
+   .tabela th, .tabela td {
+    display: table-cell;
+    padding: 1em;
+  }
+}
+
+.tabela th div{
+  position: absolute;
+  background: transparent;
+  color: #036;
+  padding: 9px 25px;
+  top: 0;
+  margin-left: -25px;
+  line-height: normal;
+  border-left: 1px solid #FFF;
+}
+.tabela th:first-child div{
+  border: none;
+}
+
+input[type="checkbox"]{
+  width: 18px;
+  height: 18px;
+}
+
+
+[id] button {
+  display: inline-block;
+  color: #fff;
+  font-size: 24px;
+  font-family: Courier, sans-serif;
+  padding: 4px 16px;
+  margin: 0 3px;
+  text-decoration: none;
+  text-transform: none;
+  border-radius: 6px;
+  background-color: #036;
+  -moz-transition: 0.1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  box-shadow: 0 2px 3px #ccc;
+  position: relative;
+}
+
+[id] button:hover {
+    background-color: #3e8e41;
+    border-bottom-width: 0;
+    margin-top: 0.2em;
+  }
+
+  
+  form {
+    padding: 1em;
+    background: #f9f9f9;
+    border: 1px solid #c1c1c1;
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0 auto;
+    width: 600px;
+    height: 120px;
+    border-radius: 1em;
+  }
+  
+  form div + div {
+    margin-top: 1em;
+  }
+  
+  label {
+    /* To make sure that all labels have the same size and are properly aligned */
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+  }
+
+  input, textarea, select {
+    font: 1em sans-serif;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #000;
+  }
+  
+  textarea {
+    vertical-align: top;
+    height: 5em;
+  }
+
+ 

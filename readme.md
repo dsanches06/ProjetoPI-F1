@@ -1,8 +1,10 @@
 # Projeto PI - FASE 1
 Programação para a Internet 2018
 
+
 ### Aplicação Web a realizar
 Aplicação Web para Gestão de Videojogo
+
 
 ### Descrição do jogo
 O jogo baseia‐se na história de Pookie, um valente gatinho cinza que fora raptado por um grupo de
@@ -13,3 +15,6 @@ aventura, ele encontrará moedas mágicas que poderão ser trocadas por itens qu
 força.
 
 ![](www/images/pookie.png)
+
+
+## Elaborado por 

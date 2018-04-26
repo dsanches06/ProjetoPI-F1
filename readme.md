@@ -12,4 +12,4 @@ até, finalmente, conseguir chegar ao portal e passar para o nível seguinte do 
 aventura, ele encontrará moedas mágicas que poderão ser trocadas por itens que irão aumentar a sua
 força.
 
-![](images/pookie.png)
+![](www/images/pookie.png)

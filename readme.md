@@ -11,3 +11,5 @@ o seu olhar laser e a sua espada (ver Figura 1 e Figura 2), ele defende‐se e d
 até, finalmente, conseguir chegar ao portal e passar para o nível seguinte do calabouço. Durante a sua
 aventura, ele encontrará moedas mágicas que poderão ser trocadas por itens que irão aumentar a sua
 força.
+
+![](images/pookie.png)

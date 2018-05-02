@@ -31,7 +31,6 @@ function criarElementoHTML(tipo) {
 */
 function limparFormulario(id) {
     var form = getElementById(id);
-    alert("FORM: " + form.id)
     form.reset();
 }
 
@@ -150,12 +149,12 @@ function criarImg(nome) {
 }
 
 /**
- * @function limparDivConteudoGeral
+ * @function limparConteudo
  * @param {HTMLElement} parent - a div com id conteudoGeral
  * @returns 
  * @description Funcao remover filhos de um conteudo
  */
-function limparDivConteudoGeral(parent) {
+function limparConteudo(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
@@ -168,7 +167,7 @@ function limparDivConteudoGeral(parent) {
 function paginaHome() {
     //obter div central
     var divCentral = getElementById("divCentral");
-    limparDivConteudoGeral(divCentral);
+    limparConteudo(divCentral);
     //criar titulo
     var h1 = criarTitulo("Bem-vindo a pagina inicial");
     divCentral.appendChild(h1);
@@ -180,6 +179,23 @@ function paginaHome() {
     //esconde os formularios
     ocultarFormulario();
 }
+
+/**
+ * Funcao auxiliar para o sort comparando 2 propName
+ * @param  {propName} nome da prop usada para se fazer a comparacao
+ * @param  {a} primeiro elemento a ser comparado
+ * @param  {b} segundo elemento a ser comparado 
+ */
+function compare(propName) {
+    return function (a, b) {
+        if (a[propName] > b[propName])
+            return -1;
+        if (a[propName] < b[propName])
+            return 1;
+        return 0;
+    };
+}
+
 
 /**
  * @memberof window

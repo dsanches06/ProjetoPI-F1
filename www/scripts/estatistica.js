@@ -5,7 +5,7 @@ var estatisticaList = []; //array para guardar a lista de estatistica
 * Closure auxiliar que é usada como contador por outras funcoes, 
 * nomeadamente para a atribuicao de id's aos elementos que sao criados.
 */
-var numeroEstatisticaca = (function () {
+var numeroEstatistica = (function () {
     var contador = 0;
     return function () {
         return contador += 1;
@@ -34,7 +34,7 @@ function Estatistica(id, valor, tipo, gameSession) {
 function paginaEstatisticas() {
     //obter div central     
     var divCentral = getElementById("divCentral");
-    limparDivConteudoGeral(divCentral);
+    limparConteudo(divCentral);
     //criar titulo
     var h1 = criarTitulo("Estatistica Geral");
     divCentral.appendChild(h1);
@@ -87,6 +87,8 @@ function criarTabelaEstatistica(divCentral) {
 function corpoTabelaEstatistica() {
     //criar um tbody
     var tbody = criarElementoHTML("tbody");
+    //ordenar pontuação de jogadores
+    // var estatistica = estatisticaList.sort(compare("valor"));//ver isso
     //faz o loop na lista de estatistica
     for (var i = 0; i < estatisticaList.length; i++) {
         var tr = criarElementoHTML("tr"); //cria uma LINHA
@@ -135,26 +137,24 @@ function buttonEstatistica(divButton) {
     //criar button adicionar
     var btnAdicionar = criarButton("Adicionar");
     btnAdicionar.onclick = function () {
-        alert("INSERIR NOVO Estatistica - NÃO IMPLEMENTADO");
-        paginaEstatisticas();
-    }
-    //criar button editar
-    var btnEditar = criarButton("Editar");
-    btnEditar.onclick = function () {
-        alert("EDITAR Estatistica - NÃO IMPLEMENTADO");
-        paginaEstatisticas();
+        mostrarFormularioEstatistica();
     }
     //criar button remover
     var btnRemover = criarButton("Remover");
     btnRemover.onclick = function () {
         removerEstatistica();
-        paginaEstatisticas();
+    }
+
+    //criar button visualizar estatistica do jogador
+    var btnVisualizar = criarButton("Visualizar");
+    btnVisualizar.onclick = function () {
+        alert("Visualizar Estatistica - NÃO IMPLEMENTADO");
     }
 
     divButton.appendChild(criarElementoHTML("br"));
     divButton.appendChild(btnAdicionar);
-    divButton.appendChild(btnEditar);
     divButton.appendChild(btnRemover);
+    divButton.appendChild(btnVisualizar);
 }
 
 /**
@@ -176,14 +176,112 @@ function obterIndexEstatisticaPorID(id) {
 * @description Função para remover Estatistica da lista
 */
 function removerEstatistica() {
-    var inputs = document.getElementsByTagName('input');
-    for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].type == 'checkbox') {
-            if (inputs[i].checked == true) {
-                var index = obterIndexEstatisticaPorID(inputs[i].id);
+    var checkbox = document.getElementsByTagName('input');
+    for (var i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].type == 'checkbox') {
+            if (checkbox[i].checked == true) {
+                var index = obterIndexEstatisticaPorID(checkbox[i].id);
                 estatisticaList.splice(index, 1);
-                alert("Estatistica " + inputs[i].id + " foi removido com sucesso.");
+                alert("Estatistica " + checkbox[i].id + " foi removido com sucesso.");
+                paginaEstatisticas();
             }
         }
     }
 }
+
+/**
+* @function verificarIdGameSessionExiste
+* @param {number} id -  Id do game session
+* @returns {number} id -  Id de game session
+* @description Função para obter a game session na lista
+*/
+function verificarIdGameSessionExiste(id) {
+    var quantos = gameSessionList.length;
+    for (var i = 0; i < quantos; i++) {
+        if (id == gameSessionList[i].id) {
+            return gameSessionList[i];
+        }
+    }
+}
+
+/**
+* @function criarListaDeTiposDeEstatistica
+* @description Função para criar a lista de tipo de estatistica e mostrar no formulario
+*/
+function criarListaDeTiposDeEstatistica(select) {
+    for (var i = 0; i < tipoEstatisticaList.length; i++) {
+        var tipoEstatistica = document.createTextNode(tipoEstatisticaList[i].nome);
+        var options = criarElementoHTML("option");
+        options.value = tipoEstatisticaList[i].nome;
+        options.appendChild(tipoEstatistica);
+        select.appendChild(options);
+    }
+}
+
+/**
+* @function criarListaDeGameSession
+* @description Função para criar a lista de game session e mostrar no formulario
+*/
+function criarListaDeGameSession(select) {
+    for (var i = 0; i < gameSessionList.length; i++) {
+        var gameSessionId = document.createTextNode(gameSessionList[i].id);
+        var options = criarElementoHTML("option");
+        options.value = gameSessionList[i].id;
+        options.appendChild(gameSessionId);
+        select.appendChild(options);
+    }
+}
+
+/**
+* @function mostrarFormularioEstatistica
+* @description Função para mostrar o formulario para preencher ou editar dados
+*/
+function mostrarFormularioEstatistica(checkboxId) {
+    var divCentral = getElementById("divCentral");
+    divCentral.style.display = "none";
+
+    var divFormEstatistica = getElementById("divFormEstatistica");
+    divFormEstatistica.style.display = "block";
+
+    //limpar dados de select
+    var tipoEstatistica = getElementById("tipoEstatistica");
+    limparConteudo(tipoEstatistica);
+    //criar lista de tipo de estatistica
+    criarListaDeTiposDeEstatistica(tipoEstatistica);
+
+    //limpar dados de select
+    var gameSession = getElementById("gameSession");
+    limparConteudo(gameSession);
+    //criar lista de game session
+    criarListaDeGameSession(gameSession);
+}
+
+/**
+* @function formEstatistica
+* @description Função para obter os dados do formulario, validar e criar uma nova estatistica
+*/
+function formEstatistica() {
+
+    var valor = getElementById("valor").value;
+    var tipoEstatistica = getElementById("tipoEstatistica").value;
+    var gameSession = getElementById("gameSession").value;
+
+    if (valor != "" && tipoEstatistica != "" && gameSession != "") {
+        //criar um novo
+        var estatistica = new Estatistica(numeroEstatistica(), valor, tipoEstatistica, gameSession);
+        //adicionar a lista
+        estatisticaList.push(estatistica);
+        alert("Estatistica foi inserido com sucesso");
+        limparFormulario("formEstatistica");//limpar formulario
+        paginaEstatisticas();
+    } else {
+        alert("Falta preencher os campos em falta");
+        return;
+    }
+}
+
+
+
+
+
+

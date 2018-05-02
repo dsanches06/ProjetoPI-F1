@@ -49,7 +49,7 @@
             <h2>Adicionar ou Editar Jogador</h2>
             <br>
             <br>
-            <form id="formJogador" action="javascript: formJogador()">
+            <form id="formJogador" action="javascript: formJogador();">
                 <div>
                     <input id="jogadorId" type="hidden" name="jogadorId">
                 </div>
@@ -90,11 +90,23 @@
             <h2>Adicionar ou Editar Game Session</h2>
             <br>
             <br>
-            <form id="formGameSession" action="javascript: formGameSession()">
+            <form id="formGameSession" action="javascript: formGameSession();">
                 <div>
                     <input id="gameSessionId" type="hidden" name="gameSessionId">
                 </div>
-
+                <div>
+                    <label for="dataSessao">Data de realização</label>&nbsp;
+                    <input id="dataSessao" type="date" name="dataSessao">
+                </div>
+                <div>
+                    <label for="descricao">Descrição (Opcional)</label>&nbsp;
+                    <input id="descricao" type="text" name="descricao">
+                </div>
+                <div>
+                    <label for="jogador">Jogador</label>&nbsp;
+                    <select id="jogador">
+                    </select>
+                </div>
                 <div>
                     <br>
                     <button type="submit">Salvar</button>
@@ -108,11 +120,24 @@
             <h2>Adicionar ou Editar Estatistica</h2>
             <br>
             <br>
-            <form id="formEstatistica" action="javascript: formEstatistica()">
+            <form id="formEstatistica" action="javascript: formEstatistica();">
                 <div>
                     <input id="estatisticaId" type="hidden" name="estatisticaId">
                 </div>
-
+                <div>
+                    <label for="valor">Valor</label>&nbsp;
+                    <input id="valor" type="text" name="valor">
+                </div>
+                <div>
+                    <label for="tipoEstatistica">Tipo de Estatistica</label>&nbsp;
+                    <select id="tipoEstatistica">
+                    </select>
+                </div>
+                <div>
+                    <label for="gameSession">Game Session</label>&nbsp;
+                    <select id="gameSession">
+                    </select>
+                </div>
                 <div>
                     <br>
                     <button type="submit">Salvar</button>

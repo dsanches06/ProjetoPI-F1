@@ -71,7 +71,7 @@ Jogador.prototype.constructor = Jogador;
 function paginaJogadores() {
     //obter div central     
     var divCentral = getElementById("divCentral");
-    limparDivConteudoGeral(divCentral);
+    limparConteudo(divCentral);
     //criar titulo
     var h1 = criarTitulo("Lista de Jogadores");
     divCentral.appendChild(h1);
@@ -132,7 +132,7 @@ function corpoTabelaJogador() {
             var divCheckBox = criarElementoHTML("div");
             divCheckBox.style.textAlign = "center";
             //cria uma checkbox
-            var checkbox = criarCheckBox(jogadorList[i].nome);
+            var checkbox = criarCheckBox(jogadorList[i].id);
             divCheckBox.appendChild(checkbox);
 
             var td1 = criarElementoHTML("td");
@@ -188,7 +188,6 @@ function buttonJogador(divButton) {
     var btnRemover = criarButton("Remover");
     btnRemover.onclick = function () {
         removerJogador();
-        paginaJogadores();
     }
 
     divButton.appendChild(criarElementoHTML("br"));
@@ -198,49 +197,29 @@ function buttonJogador(divButton) {
 }
 
 /**
-* @function obterIndexJogador
-* @param {string} nome -  Nome do jogador
-* @returns{number} i -  posição dop jogador na lista
+* @function obterIndexJogadorPorID
+* @param {number} id -  Id do jogador
+* @returns{number} i -  posição do jogador na lista
 * @description Função para obter a posição do Jogador na lista
 */
-function obterIndexJogador(nome) {
+function obterIndexJogadorPorID(id) {
     var quantos = jogadorList.length;
     for (var i = 0; i < quantos; i++) {
-        if (nome == jogadorList[i].nome) {
+        if (id == jogadorList[i].id) {
             return i;
         }
     }
 }
 
 /**
-* @function verificarIdJogadorExiste
+* @function obterJogador
 * @param {number} id -  Id do jogador
-* @returns {number} id -  Id do jogador na lista
-* @description Função para obter a posição do Jogador na lista
+* @returns {object} jogador - Jogador
+* @description Função para obter o Jogador na lista
 */
-function verificarIdJogadorExiste(id) {
-    var quantos = jogadorList.length;
-    for (var i = 0; i < quantos; i++) {
-        if (id == jogadorList[i].id) {
-            return jogadorList[i].id;
-        }
-    }
-}
-
-
-/**
-* @function obterNomeJogadorPorID
-* @param {string} id -  ID do jogador
-* @returns {number} id
-* @description Função para obter o nome de jogador na lista
-*/
-function obterNomeJogadorPorID(id) {
-    var quantos = jogadorList.length;
-    for (var i = 0; i < quantos; i++) {
-        if (id == jogadorList[i].id) {
-            return jogadorList[i].nome;
-        }
-    }
+function obterJogador(id) {
+    var i = obterIndexJogadorPorID(id);
+    return jogadorList[i];
 }
 
 /**
@@ -248,18 +227,18 @@ function obterNomeJogadorPorID(id) {
 * @description Função para remover jogador da lista
 */
 function removerJogador() {
-    var inputs = document.getElementsByTagName('input');
-    for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].type == 'checkbox') {
-            if (inputs[i].checked == true) {
-                var index = obterIndexJogador(inputs[i].id);
+    var checkbox = document.getElementsByTagName('input');
+    for (var i = 0; i < checkbox.length; i++) {
+        if (checkbox[i].type == 'checkbox') {
+            if (checkbox[i].checked == true) {
+                var index = obterIndexJogadorPorID(checkbox[i].id);
                 jogadorList.splice(index, 1);
-                alert(inputs[i].id + " foi removido com sucesso.");
+                alert("Jogador " + checkbox[i].id + " foi removido com sucesso.");
+                paginaJogadores();
             }
         }
     }
 }
-
 
 /**
 * @function mostrarFormularioJogador
@@ -275,11 +254,11 @@ function mostrarFormularioJogador(checkboxId) {
     //se houver checkbox selecionada
     if (checkboxId != null) {
         //obter o index do jogador na lista
-        var i = obterIndexJogador(checkboxId);
+        var i = obterIndexJogadorPorID(checkboxId);
         //atribuir dados do jogador a editar
         var jogadorId = getElementById("jogadorId").value = jogadorList[i].id;
         var nomeJogador = getElementById("nomeJogador").value = jogadorList[i].nome;
-        var dataNascimento = getElementById("dataNascimento").value = jogadorList[i].dataNascimento;;
+        var dataNascimento = getElementById("dataNascimento").value = jogadorList[i].dataNascimento;
         var paisJogador = getElementById("paisJogador").value = jogadorList[i].pais;
         var idade = jogadorList[i].idade;
     }
@@ -287,7 +266,7 @@ function mostrarFormularioJogador(checkboxId) {
 
 /**
 * @function formJogador
-* @description Função para 
+* @description Função para obter os dados do formulario, validar e criar um novo jogador
 */
 function formJogador() {
 
@@ -301,7 +280,7 @@ function formJogador() {
         //idade tem que ser maior ou igual a 12
         if (idade >= 12) {
             //se não existir jogador pelo id
-            if (verificarIdJogadorExiste(jogadorId) != jogadorId) {//ver isto
+            if (obterJogador(jogadorId).id != jogadorId) {//ver isto
                 //criar um novo
                 var jogador = new Jogador(numeroJogador(), nomeJogador, dataNascimento, paisJogador);
                 //adicionar a lista
@@ -310,9 +289,9 @@ function formJogador() {
             }//e se existir 
             else {
                 //procura o nome do jogador na lista pelo id
-                var nome = obterNomeJogadorPorID(jogadorId);
+                var nome = obterJogador(jogadorId).nome;
                 //para obter o index do jogador pelo id
-                var i = obterIndexJogador(nome);
+                var i = obterIndexJogadorPorID(nome);
                 //atualiza os dados
                 jogadorList[i].nome = nomeJogador;
                 jogadorList[i].dataNascimento = dataNascimento;

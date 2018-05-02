@@ -76,7 +76,7 @@ function criarCheckBox(id) {
     var checkbox = criarElementoHTML("input");
     checkbox.type = "checkbox";
     checkbox.id = id;
-    checkbox.name = checkbox.id;
+    checkbox.name = id;
     checkbox.value = "";
     return checkbox;
 }
